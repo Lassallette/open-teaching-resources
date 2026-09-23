@@ -1,0 +1,167 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Academic Portfolio — CV style
+% Antoine Lassallette
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{academic-cv}[2026/09/21 Academic CV style]
+
+% ------------------------------------------------------------
+% LANGUE ET TYPOGRAPHIE
+% ------------------------------------------------------------
+
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[french]{babel}
+
+\RequirePackage{lmodern}
+\RequirePackage{microtype}
+
+% ------------------------------------------------------------
+% MISE EN PAGE
+% ------------------------------------------------------------
+
+\RequirePackage[
+    a4paper,
+    top=1.35cm,
+    bottom=1.35cm,
+    left=1.65cm,
+    right=1.65cm
+]{geometry}
+
+\RequirePackage{xcolor}
+\RequirePackage{enumitem}
+\RequirePackage{tabularx}
+\RequirePackage{array}
+\RequirePackage{hyperref}
+\RequirePackage{parskip}
+
+% ------------------------------------------------------------
+% COULEURS
+% ------------------------------------------------------------
+
+\definecolor{cvblue}{HTML}{173B57}
+\definecolor{cvgray}{HTML}{5C6870}
+\definecolor{cvrule}{HTML}{9AAAB5}
+
+% ------------------------------------------------------------
+% RÉGLAGES GÉNÉRAUX
+% ------------------------------------------------------------
+
+\pagestyle{empty}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.25em}
+
+\hypersetup{
+    colorlinks=true,
+    urlcolor=cvblue,
+    linkcolor=cvblue,
+    pdfborder={0 0 0}
+}
+
+% ------------------------------------------------------------
+% LISTES
+% ------------------------------------------------------------
+
+\setlist[itemize]{
+    leftmargin=1.15em,
+    itemsep=0.10em,
+    topsep=0.08em,
+    parsep=0pt,
+    label=\textcolor{cvgray}{\small\textbullet}
+}
+
+% ------------------------------------------------------------
+% EN-TÊTE
+% ------------------------------------------------------------
+
+\newcommand{\cvname}[1]{%
+    {\fontsize{25}{28}\selectfont
+     \bfseries
+     \color{cvblue}
+     #1\par}
+}
+
+\newcommand{\cvtitle}[1]{%
+    \vspace{0.05cm}
+    {\fontsize{13.5}{16}\selectfont
+     \bfseries
+     #1\par}
+}
+
+\newcommand{\cvcontact}[1]{%
+    \vspace{0.18cm}
+    {\small\color{cvgray}#1\par}
+    \vspace{0.18cm}
+    {\color{cvrule}\rule{\textwidth}{0.7pt}}
+}
+
+% ------------------------------------------------------------
+% SECTIONS
+% ------------------------------------------------------------
+
+\newcommand{\cvsection}[1]{%
+    \vspace{0.42cm}
+    {\fontsize{14.5}{17}\selectfont
+     \bfseries
+     \color{cvblue}
+     #1\par}
+    \vspace{-0.07cm}
+    {\color{cvrule}\rule{\textwidth}{0.55pt}}
+    \vspace{0.15cm}
+}
+
+% ------------------------------------------------------------
+% EXPÉRIENCES
+% ------------------------------------------------------------
+
+\newcommand{\cventry}[3]{%
+    \vspace{0.14cm}
+    \begin{tabularx}{\textwidth}{
+        @{}
+        >{\raggedright\arraybackslash}X
+        >{\raggedleft\arraybackslash}p{3.4cm}
+        @{}
+    }
+        {\large\bfseries #1} & {\bfseries #3}\\[-0.05cm]
+        {\itshape #2}       &
+    \end{tabularx}
+    \vspace{-0.04cm}
+}
+
+\newcommand{\cvdescription}[1]{%
+    {\small #1\par}
+}
+
+\newcommand{\cvbullets}[1]{%
+    \begin{itemize}
+        \small
+        #1
+    \end{itemize}
+}
+
+% ------------------------------------------------------------
+% INFORMATIONS COMPACTES
+% ------------------------------------------------------------
+
+\newcommand{\cvlabel}[1]{%
+    {\bfseries #1}
+}
+
+\newcommand{\cvline}[2]{%
+    \cvlabel{#1}\hspace{0.4em}#2\par
+}
+
+\newcommand{\cvkeywords}[1]{%
+    {\small #1\par}
+}
+
+% ------------------------------------------------------------
+% PROFIL
+% ------------------------------------------------------------
+
+\newcommand{\cvprofile}[1]{%
+    \vspace{0.15cm}
+    {\small #1\par}
+}
